@@ -1,4 +1,4 @@
-import { FaucetForm } from "@/components/FaucetForm";
+import { ProtectedContent } from "@/components/ProtectedContent";
 
 export default function Home() {
   return (
@@ -11,7 +11,8 @@ export default function Home() {
             testnet
           </p>
         </div>
-        <FaucetForm />
+
+        <ProtectedContent />
       </main>
     </div>
   );

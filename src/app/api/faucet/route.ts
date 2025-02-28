@@ -22,7 +22,7 @@ interface TransactionResult {
 // Configuration
 const FAUCET_PRIVATE_KEY = process.env.FAUCET_PRIVATE_KEY || "";
 const MAX_ETH_AMOUNT = process.env.NEXT_PUBLIC_MAX_ETH_AMOUNT || "0.05";
-const RPC_URL = process.env.SEPOLIA_RPC_URL || "";
+const RPC_URL = process.env.NEXT_PUBLIC_SEPOLIA_RPC_URL || "";
 
 /**
  * Helper function to ensure a string is a valid hex string with 0x prefix

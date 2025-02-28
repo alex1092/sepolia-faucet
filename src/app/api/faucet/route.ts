@@ -13,7 +13,7 @@ import { privateKeyToAccount } from "viem/accounts";
 
 // Define transaction result type
 interface TransactionResult {
-  status: "success" | "error";
+  status: "success" | "error" | "pending";
   hash?: string;
   blockNumber?: number;
   message: string;
@@ -142,19 +142,11 @@ const sendTestEther = async (
 
     console.log("Transaction sent:", hash);
 
-    // Wait for transaction to be mined
-    const receipt = await publicClient.waitForTransactionReceipt({
-      hash,
-      timeout: 60_000, // 60 seconds
-    });
-
-    console.log("Transaction mined:", receipt.transactionHash);
-
+    // Return immediately with pending status and hash
     return {
-      status: "success",
-      hash: asHex(receipt.transactionHash),
-      blockNumber: Number(receipt.blockNumber),
-      message: `Successfully sent ${MAX_ETH_AMOUNT} ETH to ${recipientAddress}`,
+      status: "pending",
+      hash: hash,
+      message: `Transaction submitted. Sending ${MAX_ETH_AMOUNT} ETH to ${recipientAddress}`,
     };
   } catch (error) {
     console.error("Error sending ETH:", error);

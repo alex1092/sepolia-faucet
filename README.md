@@ -12,6 +12,7 @@ feel free to donate <3 - `0x8006C2663a286076e190152c38002CB371976138`
 - **Configurable**: Easily adjust ETH amount, RPC endpoints, and more
 - **Error Handling**: Comprehensive error handling for network issues and transaction failures
 - **Responsive Design**: Works on desktop and mobile devices
+- **Timeout Resistant**: Two-phase transaction approach to prevent 504 Gateway Timeout errors
 
 ## Getting Started
 
@@ -122,6 +123,27 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 - Built with [Next.js](https://nextjs.org/)
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
 - Ethereum interactions via [Viem](https://viem.sh/)
+
+## Technical Details
+
+### Handling Long-Running Transactions
+
+This faucet uses a two-phase transaction approach to prevent 504 Gateway Timeout errors:
+
+1. **Phase 1**: The API submits the transaction to the blockchain and immediately returns the transaction hash
+2. **Phase 2**: The client polls a separate endpoint to check the transaction status
+
+This approach ensures that the initial API request completes quickly, avoiding timeouts on hosting platforms with strict time limits (like Vercel).
+
+### Error Handling
+
+The application includes robust error handling for various scenarios:
+
+- Network connectivity issues
+- JSON parsing errors
+- Transaction failures
+- RPC endpoint timeouts
+- Gateway timeouts
 
 ---
 

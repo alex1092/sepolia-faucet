@@ -2,7 +2,7 @@
 
 A free-to-use Ethereum Sepolia testnet faucet application that allows developers to request test ETH for development and testing purposes.
 
-![Ethereum Sepolia Faucet](https://ethereum.org/static/28214bb68eb5445dcb063a72535bc90c/9019e/hero.png)
+feel free to donate <3 - `0x8006C2663a286076e190152c38002CB371976138`
 
 ## Features
 
